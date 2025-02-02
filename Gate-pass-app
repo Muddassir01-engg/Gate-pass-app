@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gate Pass System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body onload="setMinDates()">
+
+    <header>Online Gate Pass System <p>Visvesvaraya Technological University</p></header>
+
+    <img src="https://i.ibb.co/Xxc6XyF/VTU-Logo-250x250-1-1.png" alt="VTU Logo" class="logo">
+
+    <!-- Home Page -->
+    <div id="home" class="container">
+        <center>
+            <h2>Welcome to the Gate Pass Portal VTU, Belgaum</h2>
+            <p>Students can request a gate pass online and track its status.</p>
+            <button class="btn" onclick="showPage('request')">Request Gate Pass</button>
+            <button class="btn" onclick="showPage('status')">Check Status</button>
+            <p class="warning">For smartphone users, please switch to desktop mode for a better experience.</p>
+        </center>
+    </div>
+
+    <p class="watermark">Created and Hosted by Muddassir Tenginkeri!</p>
+
+    <!-- Request Page -->
+    <div id="request" class="container hidden">
+        <h2>Request Gate Pass</h2>
+        <form id="passForm">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" name="studentName" placeholder="Enter student name" required>
+
+            <label for="usn">USN:</label>
+            <input type="text" id="usn" name="usn" pattern="[A-Za-z0-9]{10}" title="USN must be exactly 10 alphanumeric characters" maxlength="10" placeholder="Enter USN number" required>
+
+            <label for="mobileNumber">Mobile Number:</label>
+            <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Enter 10-digit mobile number" required>
+
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                <option value="">Select Department</option>
+                <option value="Mechanical">Mechanical</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Civil">Civil</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Electronics">Electronics</option>
+            </select>
+
+            <label>Reason for Leave:</label>
+            <textarea id="reason" placeholder="Type Reason here" required></textarea>
+            
+            <label>Departure Date:</label>
+            <input type="date" id="departure" required>
+            
+            <label>Return Date:</label>
+            <input type="date" id="returnDate" required>
+
+            <button type="button" class="btn" onclick="submitRequest()">Submit Request</button>
+        </form>
+        <p id="confirmationMessage" class="confirmationMessage"></p>
+        <br>
+        <button class="btn" onclick="showPage('home')">Back</button>
+    </div>
+
+    <!-- Status Page -->
+    <div id="status" class="container hidden">
+        <h2>Your Gate Pass Requests</h2>
+        <table id="statusTable">
+            <tr>
+                <th>Name</th>
+                <th>USN</th>
+                <th>Reason</th>
+                <th>Departure</th>
+                <th>Return</th>
+                <th>Status</th>
+            </tr>
+        </table>
+        <br>
+        <button class="btn" onclick="showPage('home')">Back</button>
+    </div>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gate Pass System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body onload="setMinDates()">
+
+    <header>Online Gate Pass System <p>Visvesvaraya Technological University</p></header>
+
+    <img src="https://i.ibb.co/Xxc6XyF/VTU-Logo-250x250-1-1.png" alt="VTU Logo" class="logo">
+
+    <!-- Home Page -->
+    <div id="home" class="container">
+        <center>
+            <h2>Welcome to the Gate Pass Portal VTU, Belgaum</h2>
+            <p>Students can request a gate pass online and track its status.</p>
+            <button class="btn" onclick="showPage('request')">Request Gate Pass</button>
+            <button class="btn" onclick="showPage('status')">Check Status</button>
+            <p class="warning">For smartphone users, please switch to desktop mode for a better experience.</p>
+        </center>
+    </div>
+
+    <p class="watermark">Created and Hosted by Muddassir Tenginkeri!</p>
+
+    <!-- Request Page -->
+    <div id="request" class="container hidden">
+        <h2>Request Gate Pass</h2>
+        <form id="passForm">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" name="studentName" placeholder="Enter student name" required>
+
+            <label for="usn">USN:</label>
+            <input type="text" id="usn" name="usn" pattern="[A-Za-z0-9]{10}" title="USN must be exactly 10 alphanumeric characters" maxlength="10" placeholder="Enter USN number" required>
+
+            <label for="mobileNumber">Mobile Number:</label>
+            <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Enter 10-digit mobile number" required>
+
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                <option value="">Select Department</option>
+                <option value="Mechanical">Mechanical</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Civil">Civil</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Electronics">Electronics</option>
+            </select>
+
+            <label>Reason for Leave:</label>
+            <textarea id="reason" placeholder="Type Reason here" required></textarea>
+            
+            <label>Departure Date:</label>
+            <input type="date" id="departure" required>
+            
+            <label>Return Date:</label>
+            <input type="date" id="returnDate" required>
+
+            <button type="button" class="btn" onclick="submitRequest()">Submit Request</button>
+        </form>
+        <p id="confirmationMessage" class="confirmationMessage"></p>
+        <br>
+        <button class="btn" onclick="showPage('home')">Back</button>
+    </div>
+
+    <!-- Status Page -->
+    <div id="status" class="container hidden">
+        <h2>Your Gate Pass Requests</h2>
+        <table id="statusTable">
+            <tr>
+                <th>Name</th>
+                <th>USN</th>
+                <th>Reason</th>
+                <th>Departure</th>
+                <th>Return</th>
+                <th>Status</th>
+            </tr>
+        </table>
+        <br>
+        <button class="btn" onclick="showPage('home')">Back</button>
+    </div>
+
+</body>
+</html>
