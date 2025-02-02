@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry and Ironing Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #00ccff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            margin: 20px;
+            max-width: 1200px;
+            padding: 20px;
+        }
+        .services {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        form {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        form label, form input, form textarea, form button {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        form input, form textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        form button {
+            background-color: #00ccff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Wrinkle-Free Zone Laundry & Ironing Shop</h1>
+        <p>Your clothes deserve the best care!<br></p>
+        <p>VTU Campus, Belgaum</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#booking">Booking</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div id="home" class="container">
+        <section>
+            <h2><center>Professional Laundry & Ironing Services</center></h2>
+            <p><center>Welcome to Wrinkle-Free Zone Laundry & Ironing Shop!<br>
+             We make your clothes clean & wrinkle-free </p>
+        </section><hr>
+    </div>
+
+    <div id="about" class="container">
+        <section>
+            <h2><center>About Us</center></h2>
+            <p><center>At Wrinkle-Free Zone, we aim to provide quick and quality ironing services to save your time. Book online today and enjoy doorstep service!</center></p>
+        </section><hr>
+    </div>
+
+    <div id="services" class="container">
+        <section><center>
+            <h2><center>Our Services</center></h2>
+            <div class="services">
+                <div class="card">
+                    <h3>Laundry Service</h3>
+                    <p>We provide top-notch laundry service for all types of fabrics.</p>
+                </div>
+                <div class="card">
+                    <h3>Ironing Service</h3>
+                    <p>Keep your clothes wrinkle-free with our expert ironing services.</p>
+                </div>
+                <div class="card">
+                    <h3>Pickup & Delivery</h3>
+                    <p>Convenient pickup and delivery at your doorstep.</p>
+                </div>
+            </div>
+       </center> </section><hr>
+    </div>
+
+    <div id="booking" class="container">
+    <section>
+        <h2><center>Book a Service</center></h2>
+        <form method="POST" action="submit.php">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+                <label for="service">Service</label>
+                <select id="service" name="service" required>
+                    <option value="Laundry">Laundry</option>
+                    <option value="Iron">Iron</option>
+                    <option value="Both">Both</option>
+                </select> 
+
+
+           <p> <label for="pickup_date">Pickup Date</label>
+            <input type="date" id="pickup_date" name="pickup_date" required></p>
+
+            <label for="address">Pickup Address</label>
+            <textarea id="address" name="address" placeholder="Enter your pickup address" rows="4" required></textarea>
+
+            <button type="submit">Submit Booking</button>
+        </form>
+    </section><hr>
+</div>
+
+<script>
+    // Get today's date
+    const today = new Date();
+
+    // Format today's date to YYYY-MM-DD
+    const formattedDate = today.toISOString().split("T")[0];
+
+    // Set the "Pickup Date" input field to today's date and restrict past dates
+    document.getElementById("pickup_date").setAttribute("min", formattedDate);
+    document.getElementById("pickup_date").value = formattedDate;
+</script>
+
+
+    <div id="contact" class="container">
+        <section><center>
+            <h2><center>Contact Us</center></h2>
+            
+            <p>Email: wrinklefreezone@gmail.com</p>
+            <p>Phone: +91 1234 567 890</p>
+<p> Thank you for choosing our services!</p>
+
+       </center> </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Wrinkle-Free Zone Laundry & Ironing Shop. All rights reserved.</p>
+    </footer>
+</body>
+</html>
